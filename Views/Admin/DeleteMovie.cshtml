@@ -1,0 +1,26 @@
+﻿@model Project.Models.Movie
+
+@{
+    ViewData["Title"] = "Delete Movie";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4">
+    <h3 class="text-danger mb-4"><i class="fas fa-trash-alt"></i> Delete Movie</h3>
+
+    <form asp-action="DeleteMovie" method="post">
+        <input type="hidden" asp-for="MovieId" />
+
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label text-light"></label>
+            <input asp-for="Title" class="form-control bg-dark text-light" readonly />
+        </div>
+
+        <button type="submit" class="btn btn-danger">
+            <i class="fas fa-trash"></i> Confirm Delete
+        </button>
+        <a href="/Admin/AllMovies" class="btn btn-secondary">
+            <i class="fas fa-times"></i> Cancel
+        </a>
+    </form>
+</div>

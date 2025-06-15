@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Admin Panel";
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="container mt-4">
+    <h3 class="text-danger mb-4"><i class="fas fa-user-cog"></i> Admin Options</h3>
+
+    <div class="list-group">
+        <a href="/Admin/AddMovie" class="list-group-item list-group-item-action bg-dark text-light">
+            <i class="fas fa-plus-circle text-success me-2"></i> Add a Movie
+        </a>
+
+        <a href="/Admin/AllMovies" class="list-group-item list-group-item-action bg-dark text-light">
+            <i class="fas fa-edit text-warning me-2"></i> Edit a Movie
+        </a>
+
+        <a href="/Admin/AllMovies" class="list-group-item list-group-item-action bg-dark text-light">
+            <i class="fas fa-trash-alt text-danger me-2"></i> Delete a Movie
+        </a>
+
+        <a href="/Admin/AllMovies" class="list-group-item list-group-item-action bg-dark text-light">
+            <i class="fas fa-film text-primary me-2"></i> Show All Movies
+        </a>
+
+        <a href="/Admin/AllBookings" class="list-group-item list-group-item-action bg-dark text-light">
+            <i class="fas fa-ticket-alt text-info me-2"></i> Show All Bookings
+        </a>
+    </div>
+</div>
+
+

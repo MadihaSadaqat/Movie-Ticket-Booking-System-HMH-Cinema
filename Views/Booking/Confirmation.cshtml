@@ -1,0 +1,82 @@
+﻿@model Project.Models.Booking
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMH Cinema - Booking Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/booking.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/Home/Index">
+                <span class="logo">HMH<span>CINEMA</span></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Home/Index"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                         <form class="d-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="nav-link btn btn-link"><i class="fas fa-sign-out-alt me-1"></i> Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container confirmation-container">
+        <div class="confirmation-card p-4 p-md-5">
+            <div class="text-center mb-4">
+                <div class="confirmation-icon mb-3">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Booking Confirmed!</h2>
+                <p class="text-muted">Thank you for your booking. Here are your details:</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <img src="~/images/@Model.Movie.PosterUrl" alt="@Model.Movie.Title" class="movie-poster-confirm">
+                </div>
+                <div class="col-md-8">
+                    <h3 class="mb-3">@Model.Movie.Title</h3>
+                    <div class="mb-3">
+                        <strong>Show Date:</strong> @Model.ShowDate.ToString("dddd, MMMM dd, yyyy")
+                    </div>
+                    <div class="mb-3">
+                        <strong>Tickets:</strong> @Model.TicketsCount
+                    </div>
+                    <div class="mb-3">
+                        <strong>Price per Ticket:</strong> $@Model.Movie.Price
+                    </div>
+                    <div class="mb-3">
+                        <strong>Total Price:</strong> $@Model.TotalPrice
+                    </div>
+                    <div class="mb-4">
+                        <strong>Booking Reference:</strong> HMH-@Model.BookingId.ToString().PadLeft(6, '0')
+                    </div>
+                    <div class="d-grid gap-2 mt-4">
+                        <a href="@Url.Action("List", "Booking")" class="btn btn-danger">
+                            <i class="fas fa-list me-1"></i> View My Bookings
+                        </a>
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-outline-light">
+                            <i class="fas fa-home me-1"></i> Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

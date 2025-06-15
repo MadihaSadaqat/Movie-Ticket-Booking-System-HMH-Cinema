@@ -1,0 +1,45 @@
+﻿@model List<Project.Models.BookingViewModel>
+@{
+    ViewData["Title"] = "All Bookings";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4">
+    <h3 class="text-danger mb-4"><i class="fas fa-ticket-alt"></i> All Bookings</h3>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Person Name</th>
+                    <th>Movie</th>
+                    <th>Show Date</th>
+                    <th>Tickets</th>
+                    <th>Ref No</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model)
+                {
+                    <tr>
+                        <td>@booking.PersonName</td>
+                        <td>@booking.MovieTitle</td>
+                        <td>@booking.ShowDate.ToString("dd MMM yyyy HH:mm")</td>
+                        <td>@booking.TicketsCount</td>
+                        <td>@booking.ReferenceNumber</td>
+                        <td>
+                            <span class="badge @(booking.Status == "Confirmed" ? "bg-success" : "bg-secondary")">
+                                @booking.Status
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/Admin" class="btn btn-secondary mt-3">
+        <i class="fas fa-arrow-left"></i> Back to Admin Panel
+    </a>
+</div>

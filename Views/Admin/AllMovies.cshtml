@@ -1,0 +1,56 @@
+﻿@model List<Project.Models.Movie>
+@{
+    ViewData["Title"] = "All Movies";
+    Layout = "_AdminLayout";
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="container mt-4">
+    <h3 class="text-danger mb-4"><i class="fas fa-film"></i> All Movies</h3>
+
+    <div class="table-responsive">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Genre</th>
+                    <th>Price</th>
+                    <th>Tickets</th>
+                    <th>Actions</th> <!-- New column for buttons -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in Model)
+                {
+                    <tr>
+                        <td>@movie.MovieId</td>
+                        <td>@movie.Title</td>
+                        <td>@movie.Genre</td>
+                        <td>$@movie.Price</td>
+                        <td>@movie.TicketsAvailable</td>
+                        <td>
+                            <a asp-controller="Admin" asp-action="EditMovie" asp-route-id="@movie.MovieId" class="btn btn-sm btn-primary me-2">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a asp-controller="Admin" asp-action="DeleteMovie" asp-route-id="@movie.MovieId" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/Admin" class="btn btn-secondary mt-3">
+        <i class="fas fa-arrow-left"></i> Back to Admin Panel
+    </a>
+</div>
+

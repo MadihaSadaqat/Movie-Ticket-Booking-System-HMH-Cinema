@@ -1,0 +1,151 @@
+﻿/*confirmation*/
+
+:root {
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --accent: #e50914;
+    --text-light: #b3b3b3;
+    --text-white: #ffffff;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.confirmation-details {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.border-success {
+    border-color: #28a745 !important;
+}
+
+/*index*/
+
+.booking-container {
+    padding: 2rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.price-display {
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.poster-fixed {
+    width: 200px;
+    height: 450px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.poster-fixed img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*To Book*/
+
+.movie-card {
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    margin-bottom: 25px;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.movie-poster {
+    height: 380px;
+    object-fit: cover;
+}
+
+.movie-title {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.movie-genre {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.price {
+    color: var(--text-white);
+    font-weight: bold;
+}
+
+    .price i {
+        color: var(--accent);
+        margin-right: 5px;
+    }
+
+.search-section {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.search-box {
+    position: relative;
+}
+
+/*list*/
+
+.booking-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.booking-item {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--accent);
+    margin-bottom: 15px;
+    padding: 20px;
+    transition: transform 0.2s;
+}
+
+.booking-item:hover {
+    transform: translateX(5px);
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-cancel:hover {
+    background-color: #c82333;
+}
+
+.btn-cancel:disabled {
+    background-color: #6c757d;
+}
+
+.dev-note {
+    border-left: 3px solid var(--accent);
+    background-color: rgba(30, 30, 30, 0.7);
+    padding: 15px;
+    margin-bottom: 30px;
+}

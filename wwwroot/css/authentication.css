@@ -1,0 +1,152 @@
+﻿:root {
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --accent: #e50914;
+    --text-light: #b3b3b3;
+    --text-white: #ffffff;
+}
+
+
+/* Shared Styles for Both Forms */
+.login-container,
+.register-container {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 450px; /* Matching login's width */
+    margin: auto;
+}
+
+.login-header,
+.register-header {
+    border-bottom: 1px solid #333;
+    padding: 20px;
+    text-align: center;
+}
+
+    .login-header h3,
+    .register-header h3 {
+        margin: 0;
+        color: var(--text-white);
+    }
+
+.login-form,
+.register-form {
+    padding: 30px; /* Exact same padding as login */
+}
+
+/* Form Elements (identical to login) */
+.form-control {
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    color: var(--text-white);
+    padding: 12px 15px;
+    margin-bottom: 20px; /* Matching login's spacing */
+    width: 100%;
+}
+
+    .form-control:focus {
+        background-color: #2a2a2a;
+        color: var(--text-white);
+        border-color: var(--accent);
+        box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+    }
+
+    .form-control::placeholder {
+        color: #b3b3b3 !important;
+        opacity: 1 !important;
+    }
+
+/* Buttons (matching login styles) */
+.btn-login,
+.btn-register {
+    background-color: var(--accent);
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+    color: white;
+    transition: all 0.3s;
+}
+
+    .btn-login:hover,
+    .btn-register:hover {
+        background-color: #c40812;
+    }
+
+    .btn-login i,
+    .btn-register i {
+        margin-right: 8px;
+    }
+
+/* Footer (identical to login) */
+.login-footer,
+.register-footer {
+    text-align: center;
+    padding: 20px 30px;
+    border-top: 1px solid #333;
+}
+
+    .login-links a,
+    .register-footer a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+        .login-links a:hover,
+        .register-footer a:hover {
+            text-decoration: underline;
+        }
+
+/* User Type Selector (same as login) */
+.user-type-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.user-type-radio {
+    display: none;
+}
+
+.user-type-btn {
+    flex: 1;
+    background-color: #2a2a2a;
+    color: var(--text-white);
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .user-type-btn i {
+        margin-right: 8px;
+    }
+
+    .user-type-btn.active {
+        background-color: var(--accent);
+        border-color: var(--accent);
+    }
+
+/* Validation Messages */
+.text-danger {
+    color: #e50914;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Password Hint Text */
+small {
+    color: var(--text-light);
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+}
